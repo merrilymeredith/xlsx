@@ -33,6 +33,11 @@ func (c *Cell) Type() types.CellType {
 	return c.ml.Type
 }
 
+// FormatCode returns the formatting code of cell
+func (c *Cell) FormatCode() string {
+	return c.sheet.workbook.doc.styleSheet.resolveNumberFormat(c.ml.Style)
+}
+
 //Value returns current raw value of cell
 func (c *Cell) Value() string {
 	var value string
